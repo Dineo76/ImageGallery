@@ -7,12 +7,30 @@ const [index, setIndex]=useState(0);
 function handleClick(){
     setIndex(index + 1);
 
-}
+    for( let i = index + 1;
+        i < sculptureList.length; i++)
+
+        {
+         if ( i< sculptureList.length){
+            setIndex(i);
+            return
+         }
+
+        }
+   setIndex(0)
+}  
 let sculpture = sculptureList[index]
  
 function previousClick(){
     setIndex(index -1);
+
+    if (index > 0) {
+        setIndex( index -1);
+    } else{
+        setIndex(sculptureList.length -1);
+    }
 }
+
 
     return(
         <>
@@ -30,9 +48,15 @@ function previousClick(){
        <button onClick={previousClick}>Prev</button>
 
 
-       
+     
         </>
+
+       
   
     )
+
+
+
+     
 }
 
